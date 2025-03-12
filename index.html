@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rompecabezas interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div id="fondo"></div>
+
+    <div class="container">
+        <h1 class="title">Feliz Día de la Mujer</h1>
+        <div class="image-container">
+            
+        </div>
+        <div id="puzzle-container"></div>
+    </div>
+    
+    <div id="congratulationsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <img src="imagenes/osobeso-unscreen.jpg" alt="Felicidades" class="gif">
+            <p>¡Muchos besitos para ti! 🎉</p>
+            <button id="cerrarModal">Cerrar</button>
+        </div>
+    </div>
+    
+
+   
+
+    <!-- Imagen final (oculta al inicio) -->
+    <img id="finalImage" src="imagenes/parejaplaya.jpg" alt="Imagen completa" style="display: none; width: 100%;">
+
+
+    <div class="heart-rain"></div>
+
+
+    <button id="playMusic">🎵 Reproducir Música</button>
+    <audio id="backgroundMusic" src="audios/gorgia.mp3"></audio>
+
+
+    
+
+    <script>
+        let audio = document.getElementById("bg-music");
+    
+        // Asegurar que la mtentLoaded", function() {
+            audio.play().catch(error => console.log("Autoplay bloqueado:", error));
+        });
+    
+        // Opcional: Si el navegador bloquea el autoplay, el usuario puede hacer clic
+        window.addEventListener('click', function() {
+            audio.play();
+        });
+    
+        audio.volume = 0.5;  // Ajusta el volumen
+    </script>
+
+    <script src="script.js"></script> 
+</body>
+</html>

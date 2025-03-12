@@ -1,0 +1,287 @@
+
+/* Animación para el título */
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: #e91e63;
+    margin-bottom: 40px;
+    font-weight: bold;
+    animation: titleAnimation 3s infinite alternate;
+}
+
+/* Animación constante para el título */
+@keyframes titleAnimation {
+    0% {
+        transform: translateX(0);
+        color: #e91e63;
+    }
+    50% {
+        transform: translateX(20px);
+        color: #ff66b2;
+    }
+    100% {
+        transform: translateX(-20px);
+        color: #ffffff;
+    }
+}
+
+
+
+/* Fondo con cambio de color */
+body {
+    animation: changeBackground 10s infinite alternate;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* 🔥 Evita el desplazamiento horizontal */
+}
+
+#fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('videos/atardecerrojo.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Envía el fondo detrás de todo el contenido */
+}
+
+
+
+
+
+
+@keyframes changeBackground {
+    0% { background-color: #f7e9e9; }
+    25% { background-color: #ffb3b3; }
+    50% { background-color: #ff99cc; }
+    75% { background-color: #f28ab2; }
+    100% { background-color: #ff66b2; }
+}
+
+/* Estilo de las cartas */
+.title {
+    font-size: 2rem;
+    color: #e91e63;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.container {
+    width: 100%; /* Asegura que todo el contenido se mantenga dentro del ancho */
+    max-width: 100vw; /* Evita que se expanda más de la vista */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* Lluvia de corazones */
+.heart-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: fall 3s infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+
+
+/*CODIGO DE LA IMAGEN CON ANIMACIÓN */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo del contenedor del rompecabezas */
+#puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 20px;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* Estilo de cada pieza del rompecabezas */
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Volteo de las piezas */
+.puzzle-piece.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Lado frontal de la pieza (imagen) */
+.piece-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 300px 300px;
+    backface-visibility: hidden;
+}
+
+/* Lado trasero (tapado inicialmente) */
+.piece-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+/*BORDE ILUMINADO */
+.puzzle-piece.selected {
+    border: 2.5px solid #ffcc00; /* 🔹 Borde amarillo */
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.2); /* 🔹 Brillo amarillo */
+    transform: scale(1.05); /* 🔹 Un poco más grande */
+    transition: border 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    
+}
+
+
+
+
+/* GIF QUE ESTARA EN MODAL */ 
+.modal {
+    display: none;  /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Asegura que esté en primer plano */
+    padding: 20px; /* Espacio adicional para evitar que se vea pegado */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%; /* Adaptable a cualquier tamaño de pantalla */
+    max-width: 350px; /* Limite máximo para no expandir demasiado */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    animation: aparecer 0.5s ease-out;
+}
+
+.gif {
+    width: 100%; /* La imagen se adapta automáticamente al contenedor */
+    max-height: 250px; /* Control de altura para que no se vea exageradamente grande */
+    border-radius: 10px; /* Bordes redondeados para un toque elegante */
+    margin-bottom: 10px;
+}
+
+#cerrarModal {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;  /* Que el botón ocupe todo el ancho para mayor facilidad en móviles */
+    max-width: 200px; /* Control para que no sea excesivamente ancho */
+}
+
+#cerrarModal:hover {
+    background-color: #ff1493;
+}
+
+/* Animación suave para mostrar el modal */
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+
+#finalImage {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    opacity: 0;       /* Transparente al inicio */
+    transition: opacity 1s ease-in-out;
+}
+
+#finalImage.mostrar {
+    display: block;
+    opacity: 1;
+}
+
+
+
+
+
+
+/* CODIGO DE MUSICA */
+#playMusic {
+    background-color: #e91e63;
+    color: white;
+    font-size: 12.5px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s;
+    display: block; /* Asegura que ocupe toda la línea */
+    margin-left: 127.5px; /* Mueve el botón hacia la derecha */
+    
+}
+
+#playMusic:hover {
+    background-color: #c2185b;
+}
+
